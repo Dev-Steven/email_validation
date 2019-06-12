@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Email Validation</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+
+<style>
+    body{
+        text-align: center;
+        margin: 15px;
+    }
+
+    form {
+        text-align: center;
+    }
+
+    .email_label {
+        display: inline-block;
+    }
+
+    .input_box {
+        display: inline-block;
+    }
+
+    .submit_button {
+        display: inline-block;
+        text-align: center;
+        margin: 10px;
+    }
+
+
+
+</style>
+
+<body>
+    {% with messages = get_flashed_messages() %}     <!-- declare a variable called messages -->
+        {% if messages %}                            <!-- check if there are any messages -->
+            {% for message in messages %}            <!-- loop through the messages -->
+                <p>{{message}}</p>                   <!-- display each message in a paragraph tag -->
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+    <form action="/verify" method='POST'>
+        <p class="email_label">Email Address: </p> <input class="input_box" name="email" type="text">
+        <div class="submit_button">
+           <button class="btn btn-primary" type="submit">Submit</button> 
+        </div>
+        
+    </form>
+    <a href="/success">View Users</a>
+
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Email Validation</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<style>
+    body{
+        margin: 15px;
+    }
+
+    h1 {
+        text-align: center;
+    }
+
+    .home_link {
+        text-align: center;
+    }
+</style>
+<body>
+    <h1>Email Adresses Entered</h1>
+    <table class="table">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">Email</th>
+                <th scope="col">Created_at</th>
+            </tr>
+        </thead>
+        {% for a_user in all_users: %}
+        <tr>
+            <td>{{ a_user['email'] }}</td>
+            <td>{{ a_user['created_at'] }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    <div class="home_link">
+        <a href="/">Home</a>
+    </div>
+</body>
+</html>
